@@ -1,5 +1,8 @@
 filetype off
 
+" Автоматическое считывание конфига Vim после его перезаписи
+" au BufWritePost .vimrc so $MYVIMRC
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
@@ -8,6 +11,23 @@ let mapleader=','
 Bundle 'vim-scripts/TaskList.vim'
 
 Bundle 'gmarik/vundle'
+
+" Поддержка RuboCop
+Bundle 'ngmy/vim-rubocop'
+
+" Поддержка Git
+Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
+
+" Неплохая реализация Git Diff, запуск по ,gd
+Bundle 'int3/vim-extradite'
+nmap <Leader>gd :Extradite<CR>
+
+" Добавляет в левый сайдбар маркеры +/-/~ для вывода статуса строк из git diff
+Bundle 'airblade/vim-gitgutter'
+
+" Изменяет строку статуса на более функциональную
+Bundle 'bling/vim-airline'
 
 " Позволяет выравнивать код по нужному знаку, например, все "=" отбить с единым отступом в коде
 " Пример: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
@@ -318,7 +338,6 @@ let g:vimrubocop_config = '/Users/gruz0/rubocop.yml'
 let g:vimrubocop_keymap = 0
 nmap <C-R> :RuboCop<CR>
 
-" map ,f to display all lines with keyword under cursor and ask which one to
-" jump to
-nmap ,f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+" Настройки табов и вызов RuboCop для Ruby-файлов
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab cinoptions=:0,p0,t0 cinwords=if,else,while,do,for,switch,case
 
