@@ -1,3 +1,4 @@
+set nocompatible
 filetype off
 
 " Автоматическое считывание конфига Vim после его перезаписи
@@ -28,6 +29,10 @@ Bundle 'airblade/vim-gitgutter'
 
 " Изменяет строку статуса на более функциональную
 Bundle 'bling/vim-airline'
+
+" Поддержка CoffeeScript
+" В файле *.coffee запускать как :CoffeeCompile vert для тестовой компиляции в JS
+Bundle 'kchmck/vim-coffee-script'
 
 " Позволяет выравнивать код по нужному знаку, например, все "=" отбить с единым отступом в коде
 " Пример: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
@@ -89,7 +94,6 @@ filetype plugin indent on
 " Vim settings
 " -------------------
 
-set nocompatible
 syntax on
 
 " Tabstops
