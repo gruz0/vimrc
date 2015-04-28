@@ -9,37 +9,37 @@ call vundle#rc()
 
 " Сканирует файл на наличие todo, fixme-директив, включается через <Leader>t
 let mapleader=','
-Bundle 'vim-scripts/TaskList.vim'
+Plugin 'vim-scripts/TaskList.vim'
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Поддержка RuboCop
-Bundle 'ngmy/vim-rubocop'
+Plugin 'ngmy/vim-rubocop'
 
 " Поддержка Git
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
+Plugin 'tpope/vim-fugitive'
+Plugin 'gregsexton/gitv'
 
 " Неплохая реализация Git Diff, запуск по ,gd
-Bundle 'int3/vim-extradite'
+Plugin 'int3/vim-extradite'
 nmap <Leader>gd :Extradite<CR>
 
 " Добавляет в левый сайдбар маркеры +/-/~ для вывода статуса строк из git diff
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 " Изменяет строку статуса на более функциональную
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " Поддержка CoffeeScript
 " В файле *.coffee запускать как :CoffeeCompile vert для тестовой компиляции в JS
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
 
 " Позволяет выравнивать код по нужному знаку, например, все "=" отбить с единым отступом в коде
 " Пример: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " Использовать в VisualMode:
 " :Tab /=
 " :Tab /:\zs
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 let mapleader=','
 if exists(":Tabularize")
 	nmap <Leader>a= :Tabularize /=<CR>
@@ -49,10 +49,10 @@ if exists(":Tabularize")
 endif
 
 " Подсвечивает HEX-значения в CSS/HTML
-Bundle 'ap/vim-css-color'
+Plugin 'ap/vim-css-color'
 
 " Дерево файлов и директорий, включается по Ctrl+N
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 let g:NERDTreeWinPos = "right"
 map <C-N> :NERDTreeToggle<CR>
 nmap <C-J> :tabprevious<CR>
@@ -63,12 +63,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Подсветка синтаксиса
 " FIXME: Не заработал
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 
 " По <Leader>ig визуально выделяет уровни вложенности кода
-Bundle 'nathanaelkane/vim-indent-guides.git'
+Plugin 'nathanaelkane/vim-indent-guides.git'
 let g:indent_guides_auto_colors=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#5f5f5f ctermbg=darkgrey
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=lightgrey
@@ -79,7 +79,7 @@ autocmd VimEnter * :IndentGuidesEnable
 " vim-scripts repos
 
 " Комментирование по //
-Bundle 'tComment'
+Plugin 'tComment'
 nnoremap <silent> // :TComment<CR>
 vnoremap <silent> // :TComment<CR>
 
