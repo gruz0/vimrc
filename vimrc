@@ -34,6 +34,12 @@ Plugin 'bling/vim-airline'
 " В файле *.coffee запускать как :CoffeeCompile vert для тестовой компиляции в JS
 Plugin 'kchmck/vim-coffee-script'
 
+" Отправка существующего буфера или куска кода в gist.github.com
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
 " Позволяет выравнивать код по нужному знаку, например, все "=" отбить с единым отступом в коде
 " Пример: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " Использовать в VisualMode:
