@@ -7,11 +7,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+
 " Сканирует файл на наличие todo, fixme-директив, включается через <Leader>t
 let mapleader=','
 Plugin 'vim-scripts/TaskList.vim'
-
-Plugin 'gmarik/vundle'
 
 " Поддержка RuboCop
 Plugin 'ngmy/vim-rubocop'
@@ -91,6 +93,12 @@ vnoremap <silent> // :TComment<CR>
 
 colorscheme desert
 set t_Co=256
+
+call vundle#end()
+
+"-------------------------------------------------------
+" После этой строки не вставлять никаких Bundle/Plugin!
+"-------------------------------------------------------
 
 " Other plugins
 
