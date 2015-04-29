@@ -367,3 +367,8 @@ nmap <C-R> :RuboCop<CR>
 " Настройки табов и вызов RuboCop для Ruby-файлов
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab cinoptions=:0,p0,t0 cinwords=if,else,while,do,for,switch,case
 
+" Открывать сплиты окон справа и снизу
+set splitright
+set splitbelow
+
+autocmd Filetype gitcommit setlocal spell textwidth=72
