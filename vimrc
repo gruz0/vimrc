@@ -42,6 +42,14 @@ Plugin 'mattn/gist-vim'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
+" По gS/gJ разворачивает/сворачивает однострочное постфиксное условие в многострочное и наоборот
+" Например, puts "foo" if bar? развернёт в:
+" if bar?
+"   puts "foo"
+"   puts "baz"
+" end
+Plugin 'AndrewRadev/splitjoin.vim'
+
 " Позволяет выравнивать код по нужному знаку, например, все "=" отбить с единым отступом в коде
 " Пример: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " Использовать в VisualMode:
