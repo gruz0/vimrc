@@ -21,6 +21,7 @@ Plugin 'ngmy/vim-rubocop'
 " Поддержка Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'gregsexton/gitv'
+let g:Gitv_OpenHorizontal = 1
 
 " Неплохая реализация Git Diff, запуск по ,gd
 Plugin 'int3/vim-extradite'
