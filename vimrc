@@ -100,6 +100,9 @@ Plugin 'tComment'
 nnoremap <silent> // :TComment<CR>
 vnoremap <silent> // :TComment<CR>
 
+" Поддержка EditorConfig (единый конфиг для всех редакторов и IDE)
+Plugin 'editorconfig/editorconfig-vim'
+
 colorscheme desert
 set t_Co=256
 
@@ -147,7 +150,7 @@ set ch=2
 " Show invisibles
 set list
 
-" Set the status line 
+" Set the status line
 set statusline=%<%f%h%m%r%=\ %l,%c%V
 set laststatus=2
 
