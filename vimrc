@@ -103,6 +103,15 @@ vnoremap <silent> // :TComment<CR>
 " Поддержка EditorConfig (единый конфиг для всех редакторов и IDE)
 Plugin 'editorconfig/editorconfig-vim'
 
+" CommandT (файловый навигатор)
+Plugin 'wincent/command-t'
+let g:CommandTMaxHeight = 20
+let g:CommandTMaxFiles = 1000
+let g:CommandTMaxDepth = 5
+
+nnoremap <silent> <C-T> :CommandT<CR>
+nnoremap <silent> <C-B> :CommandTBuffer<CR>
+
 colorscheme desert
 set t_Co=256
 
