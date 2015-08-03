@@ -74,6 +74,7 @@ let g:NERDTreeWinPos = "right"
 map <C-N> :NERDTreeToggle<CR>
 nmap <C-J> :tabprevious<CR>
 nmap <C-K> :tabnext<CR>
+au VimEnter * :NERDTreeToggle
 
 " I close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -111,6 +112,13 @@ let g:CommandTMaxDepth = 5
 
 nnoremap <silent> <C-T> :CommandT<CR>
 nnoremap <silent> <C-B> :CommandTBuffer<CR>
+
+" TagBar для отображения структуры файлов
+Plugin 'majutsushi/tagbar'
+let g:tagbar_left = 1
+let g:tagbar_width = 35
+nmap <F7> :TagbarToggle<CR>
+au BufNew *.rb :TagbarOpen
 
 colorscheme desert
 set t_Co=256
