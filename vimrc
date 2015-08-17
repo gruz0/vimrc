@@ -130,6 +130,8 @@ let g:multi_cursor_next_key='<C-g>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
+Plugin 'slim-template/vim-slim.git'
+
 call vundle#end()
 
 "-------------------------------------------------------
