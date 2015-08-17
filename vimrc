@@ -1,3 +1,6 @@
+" Необходимо для корректной работы в El Capitan с zsh
+set shell=bash
+
 set nocompatible
 filetype off
 
