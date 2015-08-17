@@ -74,7 +74,7 @@ let g:NERDTreeWinPos = "right"
 map <C-N> :NERDTreeToggle<CR>
 nmap <C-J> :tabprevious<CR>
 nmap <C-K> :tabnext<CR>
-au VimEnter * :NERDTreeToggle
+"au VimEnter * :NERDTreeToggle
 
 " I close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -400,3 +400,6 @@ set splitright
 set splitbelow
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" Snippets
+"iabbrev ddate <C-r>=strftime("%F")<CR>
