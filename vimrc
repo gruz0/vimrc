@@ -134,6 +134,9 @@ let g:multi_cursor_quit_key='<Esc>'
 
 Plugin 'slim-template/vim-slim.git'
 
+Plugin 'szw/vim-ctrlspace'
+nnoremap <silent><C-p> :CtrlSpace O<CR>
+
 call vundle#end()
 
 "-------------------------------------------------------
