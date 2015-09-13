@@ -1,7 +1,7 @@
 # README #
 
-Please install https://github.com/gmarik/Vundle.vim first.
+Please install https://github.com/VundleVim/Vundle.vim first.
 
-Then start Vim and run :BundleInstall
+Then start Vim and run :PluginInstall
 
 Done! :-)

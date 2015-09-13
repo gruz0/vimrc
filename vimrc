@@ -8,11 +8,10 @@ filetype off
 " au BufWritePost .vimrc so $MYVIMRC
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " Сканирует файл на наличие todo, fixme-директив, включается через <Leader>t
 let mapleader=','
