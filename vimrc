@@ -106,15 +106,6 @@ vnoremap <silent> // :TComment<CR>
 " Поддержка EditorConfig (единый конфиг для всех редакторов и IDE)
 Plugin 'editorconfig/editorconfig-vim'
 
-" CommandT (файловый навигатор)
-Plugin 'wincent/command-t'
-let g:CommandTMaxHeight = 20
-let g:CommandTMaxFiles = 1000
-let g:CommandTMaxDepth = 5
-
-nnoremap <silent> <C-T> :CommandT<CR>
-nnoremap <silent> <C-B> :CommandTBuffer<CR>
-
 " TagBar для отображения структуры файлов
 Plugin 'majutsushi/tagbar'
 let g:tagbar_left = 1
