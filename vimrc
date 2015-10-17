@@ -401,7 +401,3 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Snippets
 "iabbrev ddate <C-r>=strftime("%F")<CR>
-
-" Browsing by tags like a RubyMine
-nnoremap silent <C-[> <C-]>
-nnoremap silent <C-]> :pop<CR>
