@@ -401,3 +401,9 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " Snippets
 "iabbrev ddate <C-r>=strftime("%F")<CR>
+
+" Nightmare mode
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
