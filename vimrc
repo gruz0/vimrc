@@ -81,6 +81,12 @@ nmap <C-K> :tabnext<CR>
 " I close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
+let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
+
 " Подсветка синтаксиса
 " FIXME: Не заработал
 Plugin 'scrooloose/syntastic'
