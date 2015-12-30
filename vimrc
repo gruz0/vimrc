@@ -134,6 +134,12 @@ Plugin 'slim-template/vim-slim.git'
 Plugin 'szw/vim-ctrlspace'
 nnoremap <silent><C-p> :CtrlSpace O<CR>
 
+" File searcher
+Plugin 'rking/ag.vim'
+
+" Always start searching from your project root instead of the cwd
+let g:ag_working_path_mode="r"
+
 call vundle#end()
 
 "-------------------------------------------------------
