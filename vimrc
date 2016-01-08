@@ -376,7 +376,9 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")|execute("normal 
 
 " Fix my <Backspace> key (in Mac OS X Terminal)
 set t_kb=
-fixdel
+if ! has('nvim')
+	fixdel
+endif
 
 " ----------------------------------------------------------
 " Mappings
