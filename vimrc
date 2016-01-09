@@ -13,6 +13,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'altercation/vim-colors-solarized'
+set background=dark
+let g:solarized_termcolors=256
+set t_Co=256
+
 " Сканирует файл на наличие todo, fixme-директив, включается через <Leader>t
 let mapleader=','
 Plugin 'vim-scripts/TaskList.vim'
@@ -126,9 +131,6 @@ let g:tagbar_left = 1
 let g:tagbar_width = 35
 nmap <F7> :TagbarToggle<CR>
 au BufNew *.rb :TagbarOpen
-
-colorscheme desert
-set t_Co=256
 
 " Multiple Cursors
 Plugin 'terryma/vim-multiple-cursors.git'
