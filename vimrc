@@ -13,10 +13,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'altercation/vim-colors-solarized'
-set background=dark
-let g:solarized_termcolors=256
-set t_Co=256
+Plugin 'cocopon/iceberg.vim'
 
 " Сканирует файл на наличие todo, fixme-директив, включается через <Leader>t
 let mapleader=','
@@ -39,6 +36,16 @@ Plugin 'airblade/vim-gitgutter'
 
 " Изменяет строку статуса на более функциональную
 Plugin 'bling/vim-airline'
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
 
 " Поддержка CoffeeScript
 " В файле *.coffee запускать как :CoffeeCompile vert для тестовой компиляции в JS
@@ -106,15 +113,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 
-" По <Leader>ig визуально выделяет уровни вложенности кода
-Plugin 'nathanaelkane/vim-indent-guides.git'
-let g:indent_guides_auto_colors=1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#5f5f5f ctermbg=darkgrey
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=lightgrey
-
-" Автозапуск плагина при старте Vim
-autocmd VimEnter * :IndentGuidesEnable
-
 " vim-scripts repos
 
 " Комментирование по //
@@ -163,6 +161,11 @@ filetype plugin indent on
 " -------------------
 " Vim settings
 " -------------------
+
+colorscheme iceberg
+set background=dark
+let g:solarized_termcolors=256
+set t_Co=256
 
 syntax on
 
