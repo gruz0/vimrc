@@ -19,6 +19,9 @@ Plugin 'cocopon/iceberg.vim'
 let mapleader=','
 Plugin 'vim-scripts/TaskList.vim'
 
+" Buffer Explorer
+Plugin 'jlanzarotta/bufexplorer'
+
 " Поддержка RuboCop
 Plugin 'ngmy/vim-rubocop'
 
@@ -434,3 +437,11 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Delays when using escape key in terminal
+" https://github.com/mhinz/vim-galore/blob/master/README.md
+set timeout           " for mappings
+set timeoutlen=1000   " default value
+set ttimeout          " for key codes
+set ttimeoutlen=10    " unnoticeable small value
+
