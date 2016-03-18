@@ -151,6 +151,9 @@ Plugin 'rking/ag.vim'
 " Always start searching from your project root instead of the cwd
 let g:ag_working_path_mode="r"
 
+" Wisely add "end" in ruby, endfunction/endif/more
+Plugin 'tpope/vim-endwise'
+
 call vundle#end()
 
 "-------------------------------------------------------
