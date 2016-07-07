@@ -148,6 +148,10 @@ nnoremap <silent><C-p> :CtrlSpace O<CR>
 " File searcher
 Plugin 'rking/ag.vim'
 
+if executable("ag")
+  let g:CtrlSpaceGlobCommand = 'ag . -l --nocolor -g ""'
+endif
+
 " Always start searching from your project root instead of the cwd
 let g:ag_working_path_mode="r"
 
@@ -447,4 +451,7 @@ set timeout           " for mappings
 set timeoutlen=1000   " default value
 set ttimeout          " for key codes
 set ttimeoutlen=10    " unnoticeable small value
+
+
+runtime macros/matchit.vim
 
