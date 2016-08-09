@@ -131,6 +131,7 @@ Plugin 'majutsushi/tagbar'
 let g:tagbar_left = 1
 let g:tagbar_width = 35
 nmap <F7> :TagbarToggle<CR>
+autocmd BufEnter * nested :call tagbar#autoopen(0)
 
 " Multiple Cursors
 Plugin 'terryma/vim-multiple-cursors.git'
