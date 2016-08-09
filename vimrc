@@ -132,6 +132,7 @@ let g:tagbar_left = 1
 let g:tagbar_width = 35
 nmap <F7> :TagbarToggle<CR>
 au BufNew *.rb :TagbarOpen
+au BufNew *.php :TagbarOpen
 
 " Multiple Cursors
 Plugin 'terryma/vim-multiple-cursors.git'
@@ -157,6 +158,14 @@ let g:ag_working_path_mode="r"
 
 " Wisely add "end" in ruby, endfunction/endif/more
 Plugin 'tpope/vim-endwise'
+
+" Vim/Ruby Configuration Files
+Plugin 'vim-ruby/vim-ruby'
+" let ruby_fold = 0
+" let ruby_no_expensive = 1
+let ruby_operators = 1
+let ruby_space_errors = 1
+let g:rubycomplete_rails = 1
 
 call vundle#end()
 
