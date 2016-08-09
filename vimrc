@@ -131,8 +131,6 @@ Plugin 'majutsushi/tagbar'
 let g:tagbar_left = 1
 let g:tagbar_width = 35
 nmap <F7> :TagbarToggle<CR>
-au BufNew *.rb :TagbarOpen
-au BufNew *.php :TagbarOpen
 
 " Multiple Cursors
 Plugin 'terryma/vim-multiple-cursors.git'
@@ -166,6 +164,9 @@ Plugin 'vim-ruby/vim-ruby'
 let ruby_operators = 1
 let ruby_space_errors = 1
 let g:rubycomplete_rails = 1
+
+" Golang
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
@@ -438,6 +439,7 @@ nmap <C-R> :RuboCop<CR>
 
 " Настройки табов и вызов RuboCop для Ruby-файлов
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab cinoptions=:0,p0,t0 cinwords=if,else,while,do,for,switch,case
+autocmd FileType go autocmd BufWritePre <buffer> GoFmt
 
 " Открывать сплиты окон справа и снизу
 set splitright
