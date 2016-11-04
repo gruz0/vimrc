@@ -103,8 +103,7 @@ let NERDTreeShowHidden=1
 let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
 
 " Подсветка синтаксиса
-" FIXME: Не заработал
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
