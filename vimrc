@@ -140,6 +140,7 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 Plugin 'slim-template/vim-slim.git'
+autocmd BufNewFile,BufRead *.slimbars setlocal filetype=slim
 
 Plugin 'szw/vim-ctrlspace'
 nnoremap <silent><C-p> :CtrlSpace O<CR>
