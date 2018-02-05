@@ -13,8 +13,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'cocopon/iceberg.vim'
-
 " Сканирует файл на наличие todo, fixme-директив, включается через <Leader>t
 let mapleader=','
 Plugin 'vim-scripts/TaskList.vim'
@@ -36,6 +34,7 @@ nmap <Leader>gd :Extradite<CR>
 
 " Добавляет в левый сайдбар маркеры +/-/~ для вывода статуса строк из git diff
 Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_max_signs=9999
 
 " Изменяет строку статуса на более функциональную
 Plugin 'bling/vim-airline'
@@ -45,10 +44,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" To open a new empty buffer
-" This replaces :tabnew which I used to bind to this mapping
-nmap <leader>T :enew<cr>
 
 " Поддержка CoffeeScript
 " В файле *.coffee запускать как :CoffeeCompile vert для тестовой компиляции в JS
@@ -60,21 +55,12 @@ Plugin 'mattn/gist-vim'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-" По gS/gJ разворачивает/сворачивает однострочное постфиксное условие в многострочное и наоборот
-" Например, puts "foo" if bar? развернёт в:
-" if bar?
-"   puts "foo"
-"   puts "baz"
-" end
-Plugin 'AndrewRadev/splitjoin.vim'
-
 " Позволяет выравнивать код по нужному знаку, например, все "=" отбить с единым отступом в коде
 " Пример: http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 " Использовать в VisualMode:
 " :Tab /=
 " :Tab /:\zs
 Plugin 'godlygeek/tabular'
-let mapleader=','
 if exists(":Tabularize")
 	nmap <Leader>a= :Tabularize /=<CR>
 	vmap <Leader>a= :Tabularize /=<CR>
@@ -91,7 +77,6 @@ let g:NERDTreeWinPos = "right"
 map <C-N> :NERDTreeToggle<CR>
 nmap <C-J> :tabprevious<CR>
 nmap <C-K> :tabnext<CR>
-"au VimEnter * :NERDTreeToggle
 
 " I close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -101,6 +86,7 @@ let NERDTreeChDirMode=2
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 let NERDTreeBookmarksFile= $HOME . '/.vim/.NERDTreeBookmarks'
+let NERDTreeWinSize=35
 
 " Подсветка синтаксиса
 Plugin 'vim-syntastic/syntastic'
@@ -113,6 +99,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_wq = 0
 
 " vim-scripts repos
@@ -130,7 +117,7 @@ Plugin 'majutsushi/tagbar'
 let g:tagbar_left = 1
 let g:tagbar_width = 35
 nmap <F7> :TagbarToggle<CR>
-autocmd BufEnter * nested :call tagbar#autoopen(0)
+autocmd BufEnter *.rb nested :call tagbar#autoopen(0)
 
 " Multiple Cursors
 Plugin 'terryma/vim-multiple-cursors.git'
@@ -142,8 +129,9 @@ let g:multi_cursor_quit_key='<Esc>'
 Plugin 'slim-template/vim-slim.git'
 autocmd BufNewFile,BufRead *.slimbars setlocal filetype=slim
 
-Plugin 'szw/vim-ctrlspace'
+Plugin 'vim-ctrlspace/vim-ctrlspace'
 nnoremap <silent><C-p> :CtrlSpace O<CR>
+nnoremap <silent><C-l> :CtrlSpace l<CR>
 
 " File searcher
 Plugin 'rking/ag.vim'
@@ -166,26 +154,26 @@ let ruby_operators = 1
 let ruby_space_errors = 1
 let g:rubycomplete_rails = 1
 
-" Golang – https://github.com/fatih/vim-go
-Plugin 'fatih/vim-go'
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+" Rails :/
+Bundle 'tpope/vim-rails.git'
+map <leader>s :A<CR> " Switch between code and the test file
 
-" Enable goimports to automatically insert import paths instead of gofmt
-let g:go_fmt_command = "goimports"
+" Dependencies of snipmate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/vim-snippets"
 
-" Autocompleter
-Plugin 'roxma/SimpleAutoComplPop'
+" Snippets for our use :)
+Bundle 'garbas/vim-snipmate'
 
-autocmd FileType go call sacp#enableForThisBuffer({ "matches": [
-      \ { '=~': '\v[a-zA-Z]{4}$' , 'feedkeys': "\<C-x>\<C-n>"} ,
-      \ { '=~': '\.$'            , 'feedkeys': "\<C-x>\<C-o>", "ignoreCompletionMode":1} ,
-      \ ]
-      \ })
+" Every one should have a pair (Autogenerate pairs for "{[( )
+Bundle 'jiangmiao/auto-pairs'
+
+" Tab completions
+Bundle 'ervandew/supertab'
+
+" Molokai theme
+Bundle 'tomasr/molokai'
 
 call vundle#end()
 
@@ -201,12 +189,14 @@ filetype plugin indent on
 " Vim settings
 " -------------------
 
-colorscheme iceberg
-set background=dark
-let g:solarized_termcolors=256
-set t_Co=256
-
 syntax on
+
+" Configs to make Molokai look great
+set background=dark
+let g:molokai_original=1
+let g:rehash256=1
+set t_Co=256
+colorscheme molokai
 
 " Tabstops
 set tabstop=4
@@ -261,7 +251,7 @@ set wildmenu
 "   - on first <Tab>, when more than one match, list all matches and complete
 "     the longest common  string
 "   - on second <Tab>, complete the next full match and show menu
-set wildmode=list:longest,full
+set wildmode=list:longest,list:full
 
 " When completing by tag, show the whole tag, not just the function name
 set showfulltag
@@ -282,9 +272,9 @@ set linespace=1
 
 " Highlight 120 column
 if exists('+colorcolumn')
-	highlight ColorColumn ctermbg=235 guibg=#2c2d27
-	highlight CursorLine ctermbg=235 guibg=#2c2d27
-	highlight CursorColumn ctermbg=235 guibg=#2c2d27
+	highlight ColorColumn ctermbg=237 ctermfg=15
+	highlight CursorLine ctermbg=236
+	highlight CursorColumn ctermbg=236
 	let &colorcolumn=join(range(121,999),",")
 else
 	autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1)
@@ -326,7 +316,7 @@ set noswapfile
 set updatecount=50
 
 " Ignore certain types of files on completion
-set wildignore+=*.o,*.obj,*.pyc,.git
+set wildignore+=*.o,*.obj,*.pyc,.git,.svn,vendor/gems/*
 
 " Tab at the end of line
 if has('multi_byte')
@@ -431,9 +421,6 @@ endif
 " pressing ; will go into command mode
 nnoremap ; :
 
-" Leader key
-let mapleader = ","
-
 " Disable the F1 key (which normally opens help)
 " coz I hit it accidentally.
 noremap <F1> <nop>
@@ -458,7 +445,6 @@ nmap <C-R> :RuboCop<CR>
 
 " Настройки табов и вызов RuboCop для Ruby-файлов
 autocmd FileType ruby setlocal ts=2 sw=2 expandtab cinoptions=:0,p0,t0 cinwords=if,else,while,do,for,switch,case
-autocmd FileType go autocmd BufWritePre <buffer> GoFmt
 
 " Открывать сплиты окон справа и снизу
 set splitright
@@ -498,3 +484,8 @@ function! DeleteEmptyBuffers()
         exe 'bdelete' join(empty)
     endif
 endfunction
+
+" diff mode
+if &diff
+  set diffopt+=iwhite
+endif
