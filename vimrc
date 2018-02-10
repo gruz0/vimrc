@@ -148,8 +148,6 @@ Plugin 'tpope/vim-endwise'
 
 " Vim/Ruby Configuration Files
 Plugin 'vim-ruby/vim-ruby'
-" let ruby_fold = 0
-" let ruby_no_expensive = 1
 let ruby_operators = 1
 let ruby_space_errors = 1
 let g:rubycomplete_rails = 1
@@ -342,20 +340,20 @@ if has("gui_running")
 		winpos 0 0
 		winsize 270 90
 		let g:vimrcloaded = 1
-endif
+	endif
 
-" Set up the gui cursor to look nice
-set guicursor=n-v-c:block-Cursor-blinkon0
-set guicursor+=ve:ver35-Cursor
-set guicursor+=o:hor50-Cursor
-set guicursor+=i-ci:ver25-Cursor
-set guicursor+=r-cr:hor20-Cursor
-set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+	" Set up the gui cursor to look nice
+	set guicursor=n-v-c:block-Cursor-blinkon0
+	set guicursor+=ve:ver35-Cursor
+	set guicursor+=o:hor50-Cursor
+	set guicursor+=i-ci:ver25-Cursor
+	set guicursor+=r-cr:hor20-Cursor
+	set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
-" set the gui options
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar"
+	" set the gui options
+	set guioptions-=m  "remove menu bar
+	set guioptions-=T  "remove toolbar
+	set guioptions-=r  "remove right-hand scroll bar"
 endif
 
 " Creates a session
