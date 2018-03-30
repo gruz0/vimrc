@@ -173,6 +173,13 @@ Bundle 'ervandew/supertab'
 " Molokai theme
 Bundle 'tomasr/molokai'
 
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
+
 call vundle#end()
 
 "-------------------------------------------------------
